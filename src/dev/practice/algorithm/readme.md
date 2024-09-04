@@ -9,3 +9,8 @@
 - `PrimitiveDataStudy`: 원시타입 정리내용
 - `CaseStudy`: 조건문 정리내용
 - `LoopStudy`: 반복문 정리내용
+- `StringStudy`: 문자열 정리내용
+- `RegexStudy`: 정규식 정리내용 (정리 미완)
+- `ClassStudy`: 클래스 정리내용
+- `InterfaceStudy`: 인터페이스 정리내용
+- `AnimalPackage`: '동물'개념 객체설계 연습 (정리 미완)

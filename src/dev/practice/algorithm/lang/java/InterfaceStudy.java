@@ -1,6 +1,6 @@
-package algorithm.lang.java.AnimalPackage;
+package algorithm.lang.java;
 
-public interface Eatable {
+public interface InterfaceStudy {
     // 필드
     // : 상수만 선언 가능하며, 특정 필드의 존재를 구현체에 강제할 수 없음
 
