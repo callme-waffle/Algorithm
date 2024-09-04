@@ -15,11 +15,14 @@ public class LoopStudy {
             System.out.printf("[foreach] num is: %d\n", num);
         }
 
+        // 3. while
         int i = 0;
         while( i < 10 ) {
             System.out.printf("[while] i is: %d\n", i++);
         }
 
+
+        // 4. do-while
         i = 0;
         do {
             System.out.printf("[do-while] i is: %d\n", i++);
