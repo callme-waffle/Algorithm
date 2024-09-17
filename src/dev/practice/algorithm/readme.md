@@ -14,3 +14,6 @@
 - `ClassStudy`: 클래스 정리내용
 - `InterfaceStudy`: 인터페이스 정리내용
 - `AnimalPackage`: '동물'개념 객체설계 연습 (정리 미완)
+### `lang.java.AnimalPackage`: '동물'개념 객체설계 연습 (정리 미완)
+### `lang.java.CollectionStudy`: Collection 구현체들에 대한 사용방법 연습파일
+- `QueueStudy`: Queue 사용법 정리파일
