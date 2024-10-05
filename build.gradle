@@ -31,7 +31,7 @@ sourceSets {
 
 // dependencies : 프로젝트가 의존할 라이브러리 정의
 dependencies {
-
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.34'
 }
 
 // test: 테스트 실행을 위한 설정 정의

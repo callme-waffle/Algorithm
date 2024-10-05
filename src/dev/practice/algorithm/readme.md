@@ -19,5 +19,7 @@
 - `QueueStudy`: Queue 사용법 정리파일
 - `SetStudy`: Set 사용법 정리파일
 - 
-### `lang.java.Java8Study`: Java8에서 추가된 문법/기능에 대한 사용방법 연습파일
-- `OptionalStudy` Optional 사용법 정리파일
+### `lang.java.VersionStudy`: Java 버전 업데이트 간 추가된 문법/기능에 대한 사용방법 연습파일
+- `Java8.OptionalStudy` Optional 사용법 정리파일
+- `Java8.StreamStudy` Stream 사용법 정리파일
+- `Java17.SealedStudy` `sealed` 키워드 사용법 정리 패키지

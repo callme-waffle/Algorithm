@@ -1,4 +1,4 @@
-package algorithm.lang.java.Java8Study;
+package algorithm.lang.java.VersionStudy.Java8;
 
 import java.util.Optional;
 import java.util.Random;
