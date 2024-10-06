@@ -2,10 +2,11 @@ package algorithm.lang.java.VersionStudy.Java17.SealedStudy;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 public sealed class UndergraduatedStudent
     permits CourseA, CourseB
 {
