@@ -1,0 +1,40 @@
+// plugins: 적용할 gradle 플러그인 지정
+plugins { id 'java' }
+
+group 'dev.Algorithm' // 프로젝트 or 조직정보
+version '0.0.1-TEST' // 프로젝트 버전정보
+
+// repositories: 의존성 라이브러리 다운로드 저장소 지정
+repositories {
+    // public repo
+    mavenCentral()
+
+    // priv or custom repo인 경우
+    /*
+    [CUSTOM_REPO_NAME] {
+        url = uri( REPO_URI_WITH_QUOTE )
+    }
+
+    */
+}
+
+// sourceSets: 코드가 위치하는 경로정의
+// ㄴ 현재 작성한 코드의 위치가 `src/dev/practice/*`이므로,
+// ㄴ srcDirs를 'src/dev/practice'로 지정
+sourceSets {
+    main { // 주요 sourceSets
+        java { // java코드 위치
+            srcDir 'src/dev/practice'
+        }
+    }
+}
+
+// dependencies : 프로젝트가 의존할 라이브러리 정의
+dependencies {
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.34'
+}
+
+// test: 테스트 실행을 위한 설정 정의
+test {
+
+}
