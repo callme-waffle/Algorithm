@@ -67,3 +67,15 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+### TroubleShooting
+
+#### 고려한 예외
+  1. n으로 소수가 입력되는 경우 => '23'인 경우를 테스트케이스로 추가하여 통과됨을 확인
+  2. while문이 중단되지 않는 경우 => `while(rem > div)`로 설정하여, rem이 줄어든다면 무조건 while이 중단되도록 설정
+
+#### 고려되지 않은 예외
+- (GPT) '5'인 경우에서 예외가 발생함을 확인 ('23'은 운좋게 통과된 것이었음)
+
+#### 해결방법
+- rem, n, div 모두 int 타입이라 소수 나눗셈 결과인 경우 의도한대로 rem이 바뀌지 않아 while이 늦게 탈출되는 문제가 있음을 확인 => float으로 typecasting하여 문제해결
