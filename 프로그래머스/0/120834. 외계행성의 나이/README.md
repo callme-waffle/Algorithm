@@ -79,3 +79,10 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+### Note
+
+#### 해맸던 부분
+- str.insert()를 사용하려 했는데 계속 문법오류가 발생하여 애를 먹었습니다.
+- 1번째 인자로는 정수 index, 2번째 인자로는 char[]을 줘야 하는데, push_back()과 착각하여 2번째 인자에 char를 그대로 넣은 것이 문제였습니다.
+- char -> char[]을 위해 배열로 wrapping하여 해결하였습니다.
