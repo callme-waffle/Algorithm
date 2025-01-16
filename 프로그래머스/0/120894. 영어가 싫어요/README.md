@@ -70,3 +70,10 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른풀이
+
+### 기존 numbers에서 숫자로 치환
+- 다시 제출해보았는데, 오히려 시간이 증가함
+- numbers() 길이 재연산 시간 + string 수정시간으로 인해 지연된 것으로 추정
+- 왠만하면 문자열을 새로 만드는게 더 빠름
