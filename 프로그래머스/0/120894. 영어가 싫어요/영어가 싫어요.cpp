@@ -6,7 +6,7 @@ using namespace std;
 
 struct element {
     int size;
-    int value;
+    string value;
 };
 
 long long solution(string numbers) {
@@ -17,20 +17,17 @@ long long solution(string numbers) {
         int size = a.size();
         string key = a.substr(0, 2);
         
-        element v = {size, cnt++};
+        element v = {size, to_string(cnt++)};
         table[key] = v;
     }
     
     int iter = 0;
-    int end = numbers.size();
-    
-    string answer = "";
-    
-    while(iter < end) {
+
+    while(iter < numbers.size()) {
         element info = table[numbers.substr(iter, 2)];
-        iter += info.size;
-        answer.replace(answer.size(), 0, to_string(info.value));
+        numbers.replace(iter, info.size, info.value);
+        iter++;
     }
     
-    return stoll(answer);
+    return stoll(numbers);
 }
