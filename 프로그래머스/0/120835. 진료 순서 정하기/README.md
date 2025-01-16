@@ -79,3 +79,29 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른풀이 분석
+
+### map의 key 정렬특성을 활용한 풀이
+```cpp
+#include <string>
+#include <vector>
+#include <map>
+using namespace std;
+
+vector<int> solution(vector<int> emergency) {
+    auto amt = map<int, int>();
+    for (auto& e : emergency) { amt[e]; }
+    // ㄴ 'amt' map에 'e'를 key로 입력
+    // => map은 기본적으로 key저장 시 오름차순 정렬하여 저장
+
+    auto order = amt.size();
+    for (auto& e : amt) { e.second = order--; }
+    // ㄴ 이미 정렬되어있는 상태이므로, 정렬된 원소 (=key)의 value로 순서를 입력
+    // ㄴ 문제에서 높은 우선순위일 수록 낮은 숫자가 오도록 하여 `order--` 형태로 작성
+
+    for (auto& e : emergency) { e = amt[e]; }
+    // ㄴ 원본 vector에 정렬결과 덮어씌우기 => 공각복잡도 최소화
+    return emergency;
+}
+```
