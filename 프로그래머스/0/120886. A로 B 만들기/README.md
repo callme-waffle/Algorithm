@@ -59,3 +59,31 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른 풀이
+
+### 정렬 후 개수 카운트
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int solution(string before, string after) {
+    sort(before.begin(), before.end());
+    sort(after.begin(),after.end());
+
+    // before & after를 각각 정렬 -> 알파벳 순으로 정리됨
+
+    if(after == before) return 1;
+    // 정렬된 상태에서 둘이 같은지 비교
+    // 섞어서 만들 수 있다면 정렬결과는 같아야 하므로 항상 1이 return
+
+    else return 0;
+}
+```
+
+- 코드의 복잡도를 고려했을 때 훨씬 간단
+- sort와 map의 내부 구현 방식에 따라 효율성에는 일부 차이가 있을 것으로 생각
+  
