@@ -75,3 +75,9 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+### 문제풀이방식
+1. 정렬해서 같은 위치에 다른 단어가 오는 위치를 탐색
+2. map을 사용해 value에 완주자 이름의 등장횟수를 기록하고, 참여자를 순회하며 등장하지 않은 경우를 탐색
+3. unordered map을 사용해 2와 동일하게 풀이하되, key 정렬시간을 줄임
