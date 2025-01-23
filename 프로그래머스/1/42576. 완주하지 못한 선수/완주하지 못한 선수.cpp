@@ -1,15 +1,15 @@
 #include <string>
 #include <vector>
-#include <map>
+#include <algorithm>
 
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
-    map<string, int> completions;
-    for (string c: completion) completions[c]++;
-    for (string p: participant) {
-        if (completions[p] == 0) return p;
-        completions[p]--;
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
+    
+    for (int i = 0; i < completion.size(); i++) {
+        if (participant[i] != completion[i]) return participant[i];
     }
-    return "";
+    return participant[participant.size()-1];
 }
