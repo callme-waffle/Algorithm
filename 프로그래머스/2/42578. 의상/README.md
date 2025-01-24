@@ -106,3 +106,35 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른풀이
+
+### map에 '의류의 개수'만 저장하는 방법
+- 문제에서 필요한 것은 '바꿔가며 입을 수 있는 의류의 수'
+- 따라서 이름을 전부 저장하지 않고 수량만 1씩 늘려도 괜찮음 (중복된 의류가 오지 않는다는 조건이 있기 때문에 가능)
+
+  ```cpp
+  #include <string>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+int solution(vector<vector<string>> clothes) {
+    int answer = 1;
+
+    unordered_map <string, int> attributes;
+    for(int i = 0; i < clothes.size(); i++)
+        attributes[clothes[i][1]]++;
+    for(auto it = attributes.begin(); it != attributes.end(); it++)
+        answer *= (it->second+1);
+    answer--;
+
+    return answer;
+}
+  ```
+
+## 배운점
+- map에 들어있는 데이터를 key목록 없이 가져오는 법
+  - for문으로 순회하며 들고오면 됨 (인덱스 기반은 포인터 접근방식으로, 범위기반은 구조체 접근방식으로)
+
