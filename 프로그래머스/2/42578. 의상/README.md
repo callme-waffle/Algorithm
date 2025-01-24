@@ -115,12 +115,12 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
 
   ```cpp
   #include <string>
-#include <vector>
-#include <unordered_map>
+  #include <vector>
+  #include <unordered_map>
 
-using namespace std;
+  using namespace std;
 
-int solution(vector<vector<string>> clothes) {
+  int solution(vector<vector<string>> clothes) {
     int answer = 1;
 
     unordered_map <string, int> attributes;
@@ -131,7 +131,7 @@ int solution(vector<vector<string>> clothes) {
     answer--;
 
     return answer;
-}
+  }
   ```
 
 ## 배운점
