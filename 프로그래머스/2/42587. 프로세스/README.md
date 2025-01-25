@@ -84,3 +84,38 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른풀이 분석
+
+### 우선순위 큐를 사용한 프로세스 실행순서 정렬
+- algorithm header의 sort() 시간복잡도: O(nlogn)
+- 우선순위 큐 정렬 시간복잡도: O(logn) * n = O(nlogn)
+- 정렬을 위해 소요되는 시간은 유사하지만, 그래도 나름 의미있을 것 같아 기록해둠
+
+```cpp
+#include <string>
+#include <queue>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<int> priorities, int location) {
+    int answer = 0;
+    queue <pair<int,int>>q;
+    priority_queue <int>pq;
+    for(int i = 0; i < priorities.size(); i++){pq.push(priorities[i]); q.push(make_pair(i, priorities[i]));}
+
+    pair<int,int> tmp;
+    while(!q.empty()){
+        // 최우선순위 프로세스 & 찾고있던 실행순서 대상 -> while 탈출
+        if(q.front().second == pq.top() && q.front().first == location){break;}
+        // 최우선순위 프로세스 -> 프로세스큐에서 삭제 & 실행횟수 1 증가
+        else if(q.front().second == pq.top()) {q.pop(); pq.pop();answer++;}
+        // 최우선순위 프로세스 아닌경우 -> 큐의 맨 마지막으로 넣고 계속 진행
+        else {tmp = q.front(); q.pop(); q.push(tmp);}
+    }
+
+    return answer + 1;
+}
+```
