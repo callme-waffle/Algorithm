@@ -62,3 +62,23 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른풀이 분석
+
+### `unique()`를 사용하여 중복 제거하기
+
+```cpp
+include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+vector<int> solution(vector<int> arr) 
+{
+
+    arr.erase(unique(arr.begin(), arr.end()),arr.end());
+
+    vector<int> answer = arr;
+    return answer;
+}
+```
