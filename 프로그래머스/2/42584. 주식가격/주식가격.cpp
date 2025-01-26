@@ -9,8 +9,13 @@ vector<int> solution(vector<int> prices) {
 
     for (int i = 0; i < prices.size(); i++) {
         for (int j = i+1; j < prices.size(); j++) {
-            answer[i] = j-i;
-            if (prices[i] > prices[j]) break;
+            if (
+                prices[i] > prices[j]
+                || j == prices.size()-1
+            ) {
+                answer[i] = j-i;
+                break;
+            }
         }
     }
     return answer;
