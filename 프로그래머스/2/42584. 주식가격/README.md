@@ -54,5 +54,38 @@
 
 <p>※ 공지 - 2019년 2월 28일 지문이 리뉴얼되었습니다.</p>
 
+## 다른풀이
+
+### stack을 사용한 풀이
+- 문제설계 시 stack을 사용한 풀이를 고려하였으나, 불필요한 사용으로 간주하여 사용하지 않았음 (참고용 분석)
+
+```cpp
+#include <string>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+vector<int> solution(vector<int> prices) {
+    vector<int> answer(prices.size());
+    stack<int> s;
+    int size = prices.size();
+    for(int i=0;i<size;i++){
+        // stack에 값이 있고, 가격이 증가하고 있으면 떨어지지 않은 초를 update
+        while(!s.empty()&&prices[s.top()]>prices[i]){
+            answer[s.top()] = i-s.top();
+            s.pop();
+        }
+
+        // 현재가격의 등락측정을 위해 새롭게 push
+        s.push(i);
+    }
+    while(!s.empty()){
+        answer[s.top()] = size-s.top()-1;
+        s.pop();
+    }
+    return answer;
+}
+```
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
