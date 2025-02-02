@@ -59,3 +59,26 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+## 다른풀이 분석
+
+### `toupper()` & `tolower()` 사용
+
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string solution(string s) {
+    string answer = "";
+
+    // 첫 글자는 대문자로 변환하여 올리고 시작 (toupper()의 특성 상 알파벳이 아닌경우 기존 문자 그대로 return)
+    answer += toupper(s[0]);
+    for (int i = 1; i < s.size(); i++)
+        // 직전 문자를 확인하여 공백이었다면 대문자로, 아니면 소문자로 변환 (toupper(), tolower() 사용)
+        s[i - 1] == ' ' ? answer += toupper(s[i]) : answer += tolower(s[i]);
+
+    return answer;
+}
+```
