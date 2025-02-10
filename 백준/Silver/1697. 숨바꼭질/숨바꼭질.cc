@@ -9,7 +9,7 @@ int main() {
     int n, k;
     cin >> n >> k;
 
-    int size = max(n, k)*3;
+    int size = max(n, k)*2;
 
     unordered_map<int, int> mm;
     queue<int> stb;
