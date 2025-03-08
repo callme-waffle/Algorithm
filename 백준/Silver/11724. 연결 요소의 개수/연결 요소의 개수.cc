@@ -36,7 +36,6 @@ int main() {
 
             visited[v] = true;
 
-
             for (int node: adj[v]) {
                 if (visited[node]) continue;
                 visitable.push(node);
