@@ -4,21 +4,15 @@
 using namespace std;
 
 vector<int> solution(int brown, int yellow) {
-    int w = yellow, h = 1;
-    while (w >= h) {
-        if ((2*(w + h) + 4) == brown) break;
-        bool changed = false;
-        for (int div = h+1; div < w; div++) {
-            if (yellow%div == 0) {
-                changed = true;
-                w = yellow/div;
-                h = div;
-                break;
-            }
-        }
-        
-        if (!changed) break;
+    int t = (brown/2)+2;
+    int w = t/2 + (t%2), h = t/2;
+    
+    while(w <= t && h >= 0) {
+        if ((w-2)*(h-2) == yellow) break;
+        w++; h--;
     }
     
-    return vector<int>({w+2, h+2});
+    vector<int> res;
+    res.push_back(w); res.push_back(h);
+    return res;
 }
