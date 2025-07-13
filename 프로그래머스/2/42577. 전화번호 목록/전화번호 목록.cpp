@@ -1,19 +1,25 @@
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <algorithm>
 
 using namespace std;
 
+bool cmp(string a, string b) {
+    return a.length() < b.length();
+}
+
 bool solution(vector<string> phone_book) {
-    unordered_set<string> pns;
-    sort(phone_book.begin(), phone_book.end());
-    for (string pn: phone_book) {
-        for (int i = 1; i <= pn.size(); i++) {
-            if (pns.find(pn.substr(0, i)) != pns.end()) return false;
+    sort(phone_book.begin(), phone_book.end(), cmp);
+    
+    unordered_set<string> pb;
+    for (string p: phone_book) {
+        for (int i = 1; i <= p.size(); i++) {
+            string sp = p.substr(0, i);
+            if (pb.find(sp) != pb.end()) return false;
         }
-        pns.insert(pn);
+        pb.insert(p);
     }
     
-    return true;
+    return pb.size() == phone_book.size();
 }
