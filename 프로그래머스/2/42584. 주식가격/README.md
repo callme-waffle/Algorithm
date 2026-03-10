@@ -1,0 +1,91 @@
+# [level 2] 주식가격 - 42584 
+
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42584) 
+
+### 성능 요약
+
+메모리: 26.7 MB, 시간: 26.98 ms
+
+### 구분
+
+코딩테스트 연습 > 스택／큐
+
+### 채점결과
+
+정확성: 66.7<br/>효율성: 33.3<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2025년 01월 26일 23:49:58
+
+### 문제 설명
+
+<p>초 단위로 기록된 주식가격이 담긴 배열 prices가 매개변수로 주어질 때, 가격이 떨어지지 않은 기간은 몇 초인지를 return 하도록 solution 함수를 완성하세요.</p>
+
+<h5>제한사항</h5>
+
+<ul>
+<li>prices의 각 가격은 1 이상 10,000 이하인 자연수입니다.</li>
+<li>prices의 길이는 2 이상 100,000 이하입니다.</li>
+</ul>
+
+<h5>입출력 예</h5>
+<table class="table">
+        <thead><tr>
+<th>prices</th>
+<th>return</th>
+</tr>
+</thead>
+        <tbody><tr>
+<td>[1, 2, 3, 2, 3]</td>
+<td>[4, 3, 1, 1, 0]</td>
+</tr>
+</tbody>
+      </table>
+<h5>입출력 예 설명</h5>
+
+<ul>
+<li>1초 시점의 ₩1은 끝까지 가격이 떨어지지 않았습니다.</li>
+<li>2초 시점의 ₩2은 끝까지 가격이 떨어지지 않았습니다.</li>
+<li>3초 시점의 ₩3은 1초뒤에 가격이 떨어집니다. 따라서 1초간 가격이 떨어지지 않은 것으로 봅니다.</li>
+<li>4초 시점의 ₩2은 1초간 가격이 떨어지지 않았습니다.</li>
+<li>5초 시점의 ₩3은 0초간 가격이 떨어지지 않았습니다.</li>
+</ul>
+
+<p>※ 공지 - 2019년 2월 28일 지문이 리뉴얼되었습니다.</p>
+
+## 다른풀이
+
+### stack을 사용한 풀이
+- 문제설계 시 stack을 사용한 풀이를 고려하였으나, 불필요한 사용으로 간주하여 사용하지 않았음 (참고용 분석)
+
+```cpp
+#include <string>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+vector<int> solution(vector<int> prices) {
+    vector<int> answer(prices.size());
+    stack<int> s;
+    int size = prices.size();
+    for(int i=0;i<size;i++){
+        // stack에 값이 있고, 가격이 증가하고 있으면 떨어지지 않은 초를 update
+        while(!s.empty()&&prices[s.top()]>prices[i]){
+            answer[s.top()] = i-s.top();
+            s.pop();
+        }
+
+        // 현재가격의 등락측정을 위해 새롭게 push
+        s.push(i);
+    }
+    while(!s.empty()){
+        answer[s.top()] = size-s.top()-1;
+        s.pop();
+    }
+    return answer;
+}
+```
+
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
